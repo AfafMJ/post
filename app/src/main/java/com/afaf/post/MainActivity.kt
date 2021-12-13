@@ -1,6 +1,7 @@
 package com.afaf.post
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var addButton: Button
     lateinit var rvAdapter: recyclerAdapter
     lateinit var Data: ArrayList<dataItem>
+    lateinit var putDel : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         ulocation = findViewById(R.id.etLocation)
         recyclerView = findViewById(R.id.rvUsers)
         addButton = findViewById(R.id.btAdd)
+        putDel = findViewById(R.id.putDelete)
         Data = arrayListOf()
         rvAdapter = recyclerAdapter(Data)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -36,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
             addUser()
+        }
+        putDel.setOnClickListener {
+            val intent = Intent(this, PutDel::class.java)
+            startActivity(intent)
         }
 
     }
@@ -83,6 +90,9 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+
+
 
 
 }

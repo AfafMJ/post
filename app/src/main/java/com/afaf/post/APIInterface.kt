@@ -1,9 +1,7 @@
 package com.afaf.post
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 
 interface APIInterface {
@@ -13,4 +11,9 @@ interface APIInterface {
 
     @POST("test/")
     fun addUser(@Body data: dataItem): Call<dataItem>
+    @PUT("test/{id}")
+    fun updateUser(@Path("id")id: Int , @Body data: dataItem): Call<dataItem>
+
+    @DELETE("test/{id}")
+    fun deleteUser(@Path("id")id: Int ): Call<Void>
 }

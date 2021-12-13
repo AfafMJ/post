@@ -31,6 +31,7 @@ class recyclerAdapter(private var Data: ArrayList<dataItem>):
         holder.binding.apply {
             tvName.text = item.name
             tvLocation.text = item.location
+            tvPk.text = "PK: ${item.pk}"
         }
     }
 
